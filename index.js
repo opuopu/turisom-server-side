@@ -22,5 +22,10 @@ client.connect(err => {
 // -------------------
 console.log("database");
 })
+
+app.get('/',(req,res)=>{
+    res.send('connceted')
+})
   app.listen(port,{})
 
+  
