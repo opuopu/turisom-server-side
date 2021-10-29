@@ -52,6 +52,12 @@ app.get('/allbooking', async(req,res)=>{
 
 })
 
+// delete booking
+app.delete('/delete/:id', async(req,res)=>{
+      const query = req.params.id
+    const result = await Bookingcollection.deleteOne({_id:ObjectId(query)})
+    res.send(result)
+})
 // -------------------single---------
 app.get('/single/:id', async(req,res)=>{
     console.log(req.params.id);
