@@ -47,7 +47,7 @@ app.get('/findbooking/:email', async(req,res)=>{
 })
 // -----------------all booking------------------
 app.get('/allbooking', async(req,res)=>{
-    const result = await Servicecollections.find({}).toArray()
+    const result = await Bookingcollection.find({}).toArray()
     res.send(result)
 
 })
