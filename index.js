@@ -86,7 +86,7 @@ app.put('/update/:id',async(req,res)=>{
         
         },
       };
-      const result = await userCollection.updateOne(filter,updateDoc,options)
+      const result = await Bookingcollection.updateOne(filter,updateDoc,options)
    console.log("updating",id);
     res.send(result)
 })
