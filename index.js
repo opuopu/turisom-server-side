@@ -64,9 +64,34 @@ app.get('/single/:id', async(req,res)=>{
     const result = await Servicecollections.findOne({_id:ObjectId(req.params.id)})
     res.send(result)
 })
+
 console.log("database");
 })
+// bookinng single get
+app.get('/single:id',async(req,res)=>{
+    const result = await Bookingcollection.findOne({_id:ObjectId(req.params.id)})
+    res.send(result)
+})
+// ----------------------put method----------------
+app.put('/update/:id',async(req,res)=>{
+    const options = { upsert: true };
+    const updateuser = req.body
+    console.log(req.body);
+    const id= req.params.id
+    const filter = {_id:ObjectId(id)}
+    
+    const updateDoc = {
+        $set: {
+         status: updateuser.status,
+        
+        },
+      };
+      const result = await userCollection.updateOne(filter,updateDoc,options)
+   console.log("updating",id);
+    res.send(result)
+})
 
+// --------------------------------------------end-----
 app.get('/',(req,res)=>{
     res.send('connceted')
 })
