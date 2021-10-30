@@ -66,13 +66,6 @@ app.get('/single/:id', async(req,res)=>{
 })
 
 console.log("database");
-})
-// bookinng single get
-app.get('/single:id',async(req,res)=>{
-    const result = await Bookingcollection.findOne({_id:ObjectId(req.params.id)})
-    res.send(result)
-})
-// ----------------------put method----------------
 app.put('/update/:id',async(req,res)=>{
     const options = { upsert: true };
     // const updateuser = req.body
@@ -93,6 +86,14 @@ app.put('/update/:id',async(req,res)=>{
    console.log("updating",id);
     res.send(result)
 })
+})
+// bookinng single get
+// app.get('/single:id',async(req,res)=>{
+//     const result = await Bookingcollection.findOne({_id:ObjectId(req.params.id)})
+//     res.send(result)
+// })
+// ----------------------put method----------------
+
 
 // --------------------------------------------end-----
 app.get('/',(req,res)=>{
