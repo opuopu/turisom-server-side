@@ -75,14 +75,17 @@ app.get('/single:id',async(req,res)=>{
 // ----------------------put method----------------
 app.put('/update/:id',async(req,res)=>{
     const options = { upsert: true };
-    const updateuser = req.body
+    // const updateuser = req.body
+    // const status = 'approved'
+
     console.log(req.body);
     const id= req.params.id
+    console.log(id);
     const filter = {_id:ObjectId(id)}
     
     const updateDoc = {
         $set: {
-         status: updateuser.status,
+         status: 'approved',
         
         },
       };
